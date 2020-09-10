@@ -23,24 +23,58 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <span class="py-2 d-none d-md-inline-block" id="user" style="color:skyblue"  ></span>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="container p-5">    
+    
+    <h1 class="text-center p-4" id="productName"></h1>
+      <div class="row" >
+          <div>         
+                <h2><b>Descripcion</b> </h2>
+                <p  id="productDescription" ></p>
+          </div>     
+     </div>
+      
+      <div class="row">
+          <div>
+                 <img class="img-car" src="img/prod1.jpg"  >
+                <img class="img-car" src="img/prod1_1.jpg"  >
+          </div>
+      </div>
+      <div>
+        <h2><b>Vendidos</b></h3>
+        <p id="productCount"></p>
+      </div>
+      <div>
+        <h2> <b>Precio</b> </h4>
+          
+        <p>USD13500</p>
+      </div>
+
+      <div>
+        <h3><b>Fotos</b></h3>
+        <img src="img/prod1_2.jpg" width="30%" class="img-thumbnail">    
+        <img src="img/prod1_3.jpg" width="30%" class="img-thumbnail">
+        <img src="img/prod1_4.jpg" width="30%" class="img-thumbnail">
+      </div>
+  
+      <div>
+        <h1> <b>Comentarios</b> </h1>
+        <div class="container p-5" id="comments"></div>
+        <h2> <b>Comentar</b> </h1>
+          <form action="">
+            <ul>
+          <textarea name="msg" cols="30" rows="4"></textarea>
+           <p><button type="submit">Comentar</button></p>
+          </ul>
+      </div>
+
   </div>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
+
+     
+    
+
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">

@@ -51,8 +51,7 @@ function showProductsList(){
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
+        
 
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -72,7 +71,7 @@ function showProductsList(){
                 </div>
             </a>
             `
-        }
+        
 
         document.getElementById("product-list").innerHTML = htmlContentToAppend;
     }
