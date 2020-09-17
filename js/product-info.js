@@ -18,6 +18,8 @@ function showImagesGallery(array){
         document.getElementById("chevroletImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+   
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -38,16 +40,23 @@ document.addEventListener("DOMContentLoaded", function(e){
             chevroletNameHTML.innerHTML = product.name;
             chevroletDescriptionHTML.innerHTML = product.description;
             chevroletCountHTML.innerHTML = product.soldCount;
-            chevroletCostHTML.innerHTML = product.cost; 
-            chevroletRelateHTML.innerHTML = product.relatedProducts
-            chevroletCurrencyHTML.innerHTML = product.currency;
-
+             
             
             showImagesGallery(product.images);
+            
         }
     });
 });
+//comentarios
+document.addEventListener("DOMContentLoaded", function(e) {
 
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            comments = resultObj.data;
+            showComents(comments);
+        }
+    });
+});
 
 var comments = [];
 
@@ -78,12 +87,40 @@ function showComents() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function(e) {
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            comments = resultObj.data;
-            showComents(comments);
+
+//productos relacionados
+var products = {};
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+          
+            products = resultObj.data;
+            
+          relatedProducts(products);
+          
         }
     });
 });
+
+
+
+function relatedProducts(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 1; i < array.length; i=i+2){
+        let productImg = array[i];
+
+        htmlContentToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + productImg.imgSrc + `" alt="">
+            </div>
+        </div>
+        `
+
+        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+    }
+};
