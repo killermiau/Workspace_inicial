@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
+    
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -50,22 +51,89 @@
           <a class="dropdown-item" href="#">Mi Perfil</a>
           <a class="dropdown-item" href="index.html">Cerrar sesión</a>
         </div>
-    </div>
+      </div>
   </nav>
-  <div class="container p-5">
+  <div class="text-center p-4">
+    <h1>Mi Carrito</h1>
+      </div>
+      <div class="container">
+        <table id="cart" class="table table-hover table-condensed">
+                  <thead>
+                  <tr>
+                    <th style="width:50%">Producto</th>
+                    <th style="width:10%">Precio</th>
+                    <th style="width:8%">Cantidad</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-th="Product">
+                      <div class="row">
+                        <div class="col-sm-2 hidden-xs" id="cartImage"></div>
+                        <div class="col-sm-10">
+                          <h4 class="nomargin  text-center" id="articleName"></h4>
+                          <p></p>
+                        </div>
+                      </div>
+                    </td>
+                    <td data-th="Price" id="articleCost"></td>
+                    <td data-th="Quantity">
+                      <input id="inputCant" type="number" min="1" class="form-control text-center" value="1">
+                    </td>
+                    <td data-th="Subtotal" id="subtotal" class="text-center"></td>
+                    
+                  </tr>
+                </tbody>
+                <tfoot>
+
+                  <tr>
+                    <td><a href="products.html" class="btn btn-warning"><i class="fa fa-angle-left"></i> Seguir Comprando</a></td>
+                    <td colspan="2" class="hidden-xs"><b>Tipo de envío </b> <button onclick="myFunction()" >?</button>
+
+                      <div style="display:none" id="myDIV">
+                        <p><b>Premium:</b>De 2 a 5 días- Costo 15% del subtotal </p>
+                        <p><b>Express:</b>De 5 a 8 días- Costo 7% del subtotal </p>
+                        <p><b>Standar:</b>De 12 a 15 días- Costo 15% del subtotal </p>
+                      </div>
+                      <div>
+                        <form action="/action_page.php">
+                          <input type="radio" id="premium" name="envio" value="0.15">
+                          <label title="2-5 días- 15% Del Subtotal" for="premium">Premium</label><br>
+                          <input type="radio" id="express" name="envio" value="0.07">
+                          <label for="express">Express</label><br>
+                          <input type="radio" id="standar" name="envio" value="0.05">
+                          <label for="standar">Standar</label>
+                      </div>
+                    </td>
+                    <td class="hidden-xs text-center" ><strong>Total:</strong>  <span id="total"></span></td>
+                    <td><a href="#" class="btn btn-success btn-block">Comprar <i class="fa fa-angle-right"></i></a></td>
+                  </tr>
+                </tfoot>
+              </table>
+      </div>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myDIV");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+      
+  <!--div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
-  </div>
+  </div-->
   <div id="spinner-wrapper">
     <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
